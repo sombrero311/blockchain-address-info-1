@@ -12,5 +12,8 @@ app.use(addressRoutes);  // the address routes
 app.get("/", (req, res) => {
     res.send("Hello THERE!");
 });
+app.get("/check", (req, res) => {
+    res.send("Checking!");
+});
 
 app.listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}`));
