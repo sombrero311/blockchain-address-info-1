@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 //aws  testing
 app.get("/check", (req, res) => {
-    res.send("Checking!");
+    res.send("Checking Again!");
 });
 
 app.listen(PORT, () => console.log(`Server listening on http://localhost:${PORT}`));
