@@ -9,9 +9,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(addressRoutes);  // the address routes
 
+//aws  testing
 app.get("/", (req, res) => {
     res.send("Hello THERE!");
 });
+//aws  testing
 app.get("/check", (req, res) => {
     res.send("Checking!");
 });
