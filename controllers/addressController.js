@@ -28,7 +28,7 @@ const formatWitness = (witnessArr) => {
             prefix = '4e' + length.toString(16).padStart(8, '0').match(/../g).reverse().join('');
         }
 
-        // debugging, we can check the raw witness 
+        // debugging, we can check the raw witness
         console.log(`Witness ${idx}: ${item} => hex=${hex}, prefix=${prefix}`);
 
         // this will eturn the formatted witness with the length prefix added own logic can't replicate tthe blockchain.info
