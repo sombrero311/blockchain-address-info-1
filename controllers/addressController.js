@@ -28,7 +28,7 @@ const formatWitness = (witnessArr) => {
             prefix = '4e' + length.toString(16).padStart(8, '0').match(/../g).reverse().join('');
         }
 
-        // debugging, we can check the raw witness
+        // debugging, we can check the raw witness 
         console.log(`Witness ${idx}: ${item} => hex=${hex}, prefix=${prefix}`);
 
         // this will eturn the formatted witness with the length prefix added own logic can't replicate tthe blockchain.info
@@ -227,4 +227,16 @@ async function getAddressData(req, res) {
     }
 }
 
-module.exports = { getAddressData };
+// new function that returns raw transaction hex data from a given txid
+async function getRawTxHex(req, res) {
+    const txid = req.params.txid;
+
+    try {
+        const response = await axios.get(`https://blockstream.info/api/tx/${txid}/hex`);
+        res.type('text/plain').send(response.data);
+    } catch (error) {
+        console.error("Error  fetching raw tx hex:", error.message);
+        res.status(500).json({ error: "Failed to fetch raw transaction hex", details: error.message });
+    }
+}
+module.exports = { getAddressData, getRawTxHex };
